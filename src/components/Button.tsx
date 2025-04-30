@@ -12,11 +12,11 @@ const ButtonColorVariants = (variant: string) => {
 const ButtonSizeVariant = (variant: string) => {
   switch (variant) {
     case "sm":
-      return "px-5 py-1 text-sm w-30";
+      return "px-2 py-1 text-sm w-30 rounded-sm";
     case "md":
-      return "px-6 py-2 text-md w-40";
+      return "px-5 py-2 text-md w-40 rounded-md";
     case "lg":
-      return "px-7 py-2 text-lg w-50";
+      return "px-6 py-2 text-lg w-50 rounded-lg";
   }
 };
 interface ButtonProps {
@@ -30,7 +30,7 @@ interface ButtonProps {
 
 export const Button = (props: ButtonProps): ReactElement => {
   const classes = `
-      inline-flex items-center justify-center gap-2 rounded-md 
+      inline-flex items-center justify-center gap-2
       ${ButtonColorVariants(props.variant)} 
       ${ButtonSizeVariant(props.size)}
     `;

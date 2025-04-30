@@ -8,10 +8,10 @@ function App() {
     <>
       <Button
         variant="primary"
-        size="lg"
+        size="sm"
         text="Add Content"
         onclick={() => {}}
-        startIcon={<PlusComponent size="lg" />}
+        startIcon={<PlusComponent size="sm" />}
       />
       <br></br>
       <br></br>
