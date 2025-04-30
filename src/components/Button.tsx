@@ -12,11 +12,11 @@ const ButtonColorVariants = (variant: string) => {
 const ButtonSizeVariant = (variant: string) => {
   switch (variant) {
     case "sm":
-      return "px-5 py-1 text-sm";
+      return "px-5 py-1 text-sm w-30";
     case "md":
-      return "px-6 py-2 text-md";
+      return "px-6 py-2 text-md w-40";
     case "lg":
-      return "px-7 py-2 text-lg";
+      return "px-7 py-2 text-lg w-50";
   }
 };
 interface ButtonProps {

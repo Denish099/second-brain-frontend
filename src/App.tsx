@@ -1,12 +1,13 @@
 import "./App.css";
 import { Button } from "./components/Button";
 import { PlusComponent } from "./icons/plusIcon";
+import { ShareIcon } from "./icons/shareIcon";
 
 function App() {
   return (
     <>
       <Button
-        variant="secondary"
+        variant="primary"
         size="lg"
         text="Add Content"
         onclick={() => {}}
@@ -16,9 +17,10 @@ function App() {
       <br></br>
 
       <Button
-        variant="primary"
+        variant="secondary"
         size="lg"
-        text="Add Content"
+        text="Share"
+        startIcon={<ShareIcon size="lg" />}
         onclick={() => {}}
       />
     </>
