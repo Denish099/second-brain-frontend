@@ -1,4 +1,3 @@
-import "./App.css";
 import { Button } from "./components/Button";
 import { PlusComponent } from "./icons/plusIcon";
 import { ShareIcon } from "./icons/shareIcon";
