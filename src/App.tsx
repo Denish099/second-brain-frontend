@@ -2,37 +2,46 @@ import { Button } from "./components/Button";
 import { PlusComponent } from "./icons/plusIcon";
 import { ShareIcon } from "./icons/shareIcon";
 import { Card } from "./components/Card";
+
 function App() {
   return (
-    <>
-      <Button
-        variant="primary"
-        size="sm"
-        text="Add Content"
-        onclick={() => {}}
-        startIcon={<PlusComponent size="sm" />}
-      />
-      <br></br>
-      <br></br>
+    <div className="p-4 space-y-6">
+      <div className="flex justify-end gap-3">
+        <Button
+          variant="primary"
+          size="lg"
+          text="Add Content"
+          onclick={() => {}}
+          startIcon={<PlusComponent size="lg" />}
+        />
 
-      <Button
-        variant="secondary"
-        size="lg"
-        text="Share"
-        startIcon={<ShareIcon size="lg" />}
-        onclick={() => {}}
-      />
-      <Card
-        title="hello"
-        link="https://twitter.com/username/status/807811447862468608"
-        type="twitter"
-      />
-      <Card
-        title="youtube"
-        link="https://www.youtube.com/embed/fRE9WVZcU7I?si=A_CgvJ1m8hvPIK05"
-        type="youtube"
-      />
-    </>
+        <Button
+          variant="secondary"
+          size="lg"
+          text="Share"
+          startIcon={<ShareIcon size="lg" />}
+          onclick={() => {}}
+        />
+      </div>
+
+      <div className="flex gap-4 flex-wrap">
+        <div>
+          <Card
+            title="Twitter Post"
+            link="https://x.com/kirat_tw/status/1633685473821425666"
+            type="twitter"
+          />
+        </div>
+
+        <div>
+          <Card
+            title="YouTube Video"
+            link="https://www.youtube.com/watch?v=fRE9WVZcU7I"
+            type="youtube"
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
