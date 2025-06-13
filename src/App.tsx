@@ -2,10 +2,12 @@ import { Button } from "./components/Button";
 import { PlusComponent } from "./icons/plusIcon";
 import { ShareIcon } from "./icons/shareIcon";
 import { Card } from "./components/Card";
+import { CreateComponentModel } from "./components/createComponentModel";
 
 function App() {
   return (
     <div className="p-4 space-y-6">
+      <CreateComponentModel open={false} onclose={() => {}} />
       <div className="flex justify-end gap-3">
         <Button
           variant="primary"

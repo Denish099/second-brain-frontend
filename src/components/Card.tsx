@@ -1,5 +1,6 @@
 import { ReactElement, useEffect } from "react";
 import { ShareIcon } from "../icons/shareIcon";
+import { DeleteIcon } from "../icons/deleteIcon";
 
 interface CardProps {
   title: string;
@@ -35,14 +36,17 @@ export const Card = (props: CardProps): ReactElement => {
       <div className="p-4 space-y-2">
         <div className="flex items-center justify-between">
           <p className="text-gray-700 text-lg font-medium">{props.title}</p>
-          <a
-            href={props.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Open Link"
-          >
-            <ShareIcon size="md" />
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={props.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open Link"
+            >
+              <ShareIcon size="lg" />
+            </a>
+            <DeleteIcon size="lg" />
+          </div>
         </div>
 
         {props.type === "youtube" && (
