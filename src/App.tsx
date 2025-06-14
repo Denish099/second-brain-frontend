@@ -7,7 +7,7 @@ import { CreateComponentModel } from "./components/createComponentModel";
 function App() {
   return (
     <div className="p-4 space-y-6">
-      <CreateComponentModel open={false} onclose={() => {}} />
+      <CreateComponentModel open={true} onclose={() => {}} />
       <div className="flex justify-end gap-3">
         <Button
           variant="primary"
