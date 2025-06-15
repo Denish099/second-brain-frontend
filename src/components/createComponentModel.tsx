@@ -14,7 +14,9 @@ export const CreateComponentModel = ({ open, onclose }: ModelProps) => {
         <div>
           <p>Hello Modal</p>
         </div>
-        <XmarkICon size="lg" />
+        <div>
+          <XmarkICon size="lg" />
+        </div>
       </div>
     </div>
   );
