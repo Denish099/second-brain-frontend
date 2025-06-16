@@ -1,5 +1,5 @@
 export interface IconProps {
-  size: "sm" | "md" | "lg";
+  size: "sm" | "md" | "lg" | "2lg";
 }
 export const size = (variant: string) => {
   switch (variant) {
@@ -9,5 +9,7 @@ export const size = (variant: string) => {
       return "size-4";
     case "lg":
       return "size-5";
+    case "2lg":
+      return "size-8";
   }
 };
