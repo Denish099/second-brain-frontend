@@ -1,7 +1,7 @@
 import { Input } from "../components/inputs";
 import { Button } from "../components/Button";
 import { Logo } from "../icons/logo";
-export function SignUp() {
+export function Login() {
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-200">
       <div className="bg-white rounded border-gray-200 min-w-48 p-7">
@@ -12,12 +12,7 @@ export function SignUp() {
         <Input placeholder="username" />
         <Input placeholder="password" />
         <div className="flex items-center justify-center pt-4">
-          <Button
-            text="Sign up"
-            variant="primary"
-            size="lg"
-            onclick={() => {}}
-          />
+          <Button text="Login" variant="primary" size="lg" onclick={() => {}} />
         </div>
       </div>
     </div>
