@@ -1,7 +1,8 @@
 import { Dashboard } from "./pages/dashboard";
+import { SignUp } from "./pages/signup";
 
 function App() {
-  return <Dashboard />;
+  return <SignUp />;
 }
 
 export default App;
