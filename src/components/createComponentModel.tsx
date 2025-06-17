@@ -1,5 +1,6 @@
 import { XmarkICon } from "../icons/x-markIcon";
 import { Button } from "./Button";
+import { Input } from "./inputs";
 
 interface ModelProps {
   open: boolean;
@@ -37,23 +38,3 @@ export const CreateComponentModel = ({ open, onClose }: ModelProps) => {
     </div>
   );
 };
-
-// Input field component
-function Input({
-  onChange = () => {},
-  placeholder,
-}: {
-  onChange?: () => void;
-  placeholder: string;
-}) {
-  return (
-    <div>
-      <input
-        placeholder={placeholder}
-        type="text"
-        className="px-4 py-2 border rounded-2xl my-2 w-full"
-        onChange={onChange}
-      />
-    </div>
-  );
-}
