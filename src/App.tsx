@@ -5,6 +5,7 @@ import { SignUp } from "./pages/signup";
 import { useQuery } from "@tanstack/react-query";
 import { Navigate } from "react-router-dom";
 import { Login } from "./pages/signin";
+
 function App() {
   const { data: authUser } = useQuery({
     queryKey: ["authUser"],
@@ -13,6 +14,7 @@ function App() {
       return res.data;
     },
   });
+
   return (
     <div>
       <Routes>
