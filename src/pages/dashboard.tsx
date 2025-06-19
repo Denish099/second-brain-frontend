@@ -6,10 +6,22 @@ import { PlusComponent } from "../icons/plusIcon";
 import { Card } from "../components/Card";
 import { ShareIcon } from "../icons/shareIcon";
 import { useContent } from "../hooks/useContent";
+import axiosInstance from "../lib/axios";
 
 export function Dashboard() {
   const content = useContent();
   const [modalOpen, setModalOpen] = useState(false);
+
+  const shareButton = async () => {
+    const res = await axiosInstance.post("/share", {
+      share: true,
+    });
+
+    const url = `http://localhost:5173/api/v1/share/${res.data.hash}`;
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Copied to clipboard!");
+    });
+  };
 
   return (
     <div>
@@ -38,7 +50,7 @@ export function Dashboard() {
             size="lg"
             text="Share"
             startIcon={<ShareIcon size="lg" />}
-            onclick={() => {}}
+            onclick={shareButton}
           />
         </div>
 
