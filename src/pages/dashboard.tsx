@@ -5,7 +5,10 @@ import { CreateComponentModel } from "../components/createComponentModel";
 import { PlusComponent } from "../icons/plusIcon";
 import { Card } from "../components/Card";
 import { ShareIcon } from "../icons/shareIcon";
+import { useContent } from "../hooks/useContent";
+
 export function Dashboard() {
+  const content = useContent();
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -40,21 +43,11 @@ export function Dashboard() {
         </div>
 
         <div className="flex gap-4 flex-wrap">
-          <div>
-            <Card
-              title="Twitter Post"
-              link="https://x.com/kirat_tw/status/1633685473821425666"
-              type="twitter"
-            />
-          </div>
-
-          <div>
-            <Card
-              title="YouTube Video"
-              link="https://www.youtube.com/watch?v=fRE9WVZcU7I"
-              type="youtube"
-            />
-          </div>
+          {content.map(({ type, link, title }) => (
+            <div>
+              <Card type={type} link={link} title={title} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
