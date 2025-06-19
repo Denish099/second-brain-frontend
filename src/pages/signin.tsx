@@ -3,8 +3,10 @@ import { Button } from "../components/Button";
 import { Logo } from "../icons/logo";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axiosInstance from "../lib/axios";
+import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 export function Login() {
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -12,11 +14,13 @@ export function Login() {
 
   const { mutate: signupMutation } = useMutation({
     mutationFn: async (data: { username: string; password: string }) => {
-      const res = await axiosInstance.post("auth/signup", data);
+      const res = await axiosInstance.post("auth/login", data);
+      console.log(res.data);
       return res.data;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["authUser"] });
+      navigate("/");
     },
   });
 
