@@ -17,8 +17,8 @@ export function Dashboard() {
     const res = await axiosInstance.post("/share", {
       share: true,
     });
-
-    const url = `http://localhost:5173/api/v1/share/${res.data.hash}`;
+    console.log(res.data);
+    const url = `http://localhost:5173/api/v1/${res.data.message}`;
     navigator.clipboard.writeText(url).then(() => {
       alert("Copied to clipboard!");
     });
