@@ -9,8 +9,9 @@ import { useContent } from "../hooks/useContent";
 import axiosInstance from "../lib/axios";
 
 export function Dashboard() {
-  const content = useContent();
+  const [contentType, setContenttype] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const content = useContent(contentType);
 
   const shareButton = async () => {
     const res = await axiosInstance.post("/share", {
@@ -25,7 +26,11 @@ export function Dashboard() {
 
   return (
     <div>
-      <SideBar />
+      <SideBar
+        onSelectType={(type: any) => {
+          setContenttype(type);
+        }}
+      />
 
       <div className="p-4 space-y-6  ml-76">
         <CreateComponentModel
@@ -55,11 +60,12 @@ export function Dashboard() {
         </div>
 
         <div className="flex gap-4 flex-wrap">
-          {content.map(({ type, link, title, _id }) => (
-            <div>
-              <Card type={type} link={link} title={title} _id={_id} />
-            </div>
-          ))}
+          {contentType &&
+            content.map(({ type, link, title, _id }) => (
+              <div>
+                <Card type={type} link={link} title={title} _id={_id} />
+              </div>
+            ))}
         </div>
       </div>
     </div>

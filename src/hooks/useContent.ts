@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../lib/axios";
 
-export function useContent() {
+export function useContent(contentType: string | boolean) {
   const [contents, setContent] = useState([]);
 
   const refresh = () => {
@@ -12,20 +12,25 @@ export function useContent() {
         },
       })
       .then((res) => {
-        setContent(res.data.contents);
+        let data = res.data.contents;
+        if (contentType !== true) {
+          data = data.filter((item: any) => item.type === contentType);
+        }
+        setContent(data);
       });
   };
+
   useEffect(() => {
     refresh();
 
-    let interval = setInterval(() => {
+    const interval = setInterval(() => {
       refresh();
     }, 10 * 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [contentType]); // refresh when contentType changes
 
   return contents;
 }
