@@ -1,8 +1,10 @@
 import { ReactElement, useEffect } from "react";
 import { ShareIcon } from "../icons/shareIcon";
 import { DeleteIcon } from "../icons/deleteIcon";
+import axiosInstance from "../lib/axios";
 
 interface CardProps {
+  _id: string;
   title: string;
   link: string;
   type: "twitter" | "youtube";
@@ -19,6 +21,16 @@ const getYouTubeEmbedUrl = (url: string): string => {
 };
 
 export const Card = (props: CardProps): ReactElement => {
+  const deleteCard = async () => {
+    console.log(props);
+    await axiosInstance.delete("/content", {
+      data: { contentId: props._id },
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+  };
+
   useEffect(() => {
     if (props.type === "twitter") {
       const script = document.createElement("script");
@@ -45,7 +57,9 @@ export const Card = (props: CardProps): ReactElement => {
             >
               <ShareIcon size="lg" />
             </a>
-            <DeleteIcon size="lg" />
+            <div onClick={deleteCard}>
+              <DeleteIcon size="lg" />
+            </div>
           </div>
         </div>
 

@@ -20,7 +20,7 @@ export function useContent() {
 
     let interval = setInterval(() => {
       refresh();
-    }, 100);
+    }, 10 * 1000);
 
     return () => {
       clearInterval(interval);
