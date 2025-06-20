@@ -5,6 +5,7 @@ import { SignUp } from "./pages/signup";
 import { useQuery } from "@tanstack/react-query";
 import { Navigate } from "react-router-dom";
 import { Login } from "./pages/signin";
+import { SharePage } from "./pages/sharePage";
 
 function App() {
   const { data: authUser } = useQuery({
@@ -27,6 +28,7 @@ function App() {
           path="/login"
           element={!authUser ? <Login /> : <Navigate to="/" />}
         />
+        <Route path="/share/:shareId" element={<SharePage />} />
       </Routes>
     </div>
   );

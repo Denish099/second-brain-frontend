@@ -18,7 +18,7 @@ export function Dashboard() {
       share: true,
     });
     console.log(res.data);
-    const url = `http://localhost:5173/api/v1/${res.data.message}`;
+    const url = `http://localhost:5173${res.data.message}`;
     navigator.clipboard.writeText(url).then(() => {
       alert("Copied to clipboard!");
     });
